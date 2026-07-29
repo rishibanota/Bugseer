@@ -1,0 +1,38 @@
+# BugSeer artifacts
+.bugseer/
+*.bugseer.json
+bugseer-report.html
+
+# Secrets
+.env
+.env.local
+.env.*.local
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Node / frontend
+node_modules/
+frontend/dist/
+# NOTE: bugseer/webui/static/ is the built dashboard and IS committed, so that
+# `bugseer serve` works for users who do not have a node toolchain installed.
+*.tsbuildinfo
+.vite/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store

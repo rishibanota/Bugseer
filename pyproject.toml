@@ -1,0 +1,67 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bugseer"
+version = "0.1.0"
+description = "Offline bug-risk prediction for code repositories. Static analysis + git intelligence + local ML. No cloud, no API keys required."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "BugSeer contributors" }]
+keywords = ["static-analysis", "bug-prediction", "git", "code-quality", "machine-learning", "offline"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Topic :: Software Development :: Quality Assurance",
+]
+
+dependencies = [
+  "typer>=0.12",
+  "rich>=13.0",
+  "pydantic>=2.0",
+  "networkx>=3.0",
+  "jinja2>=3.1",
+  "numpy>=1.24",
+  "pandas>=2.0",
+  "scikit-learn>=1.3",
+  "joblib>=1.3",
+]
+
+[project.optional-dependencies]
+# Multi-language parsing. Without it BugSeer still works: Python uses the
+# stdlib `ast` module and other languages fall back to a heuristic analyzer.
+parsers = ["tree-sitter>=0.21", "tree-sitter-language-pack>=0.2"]
+# Local dashboard server.
+server = ["fastapi>=0.110", "uvicorn[standard]>=0.27"]
+# Stronger gradient boosting backends for Phase 3 (scikit-learn is the default).
+ml = ["xgboost>=2.0", "lightgbm>=4.0"]
+# Optional: read API keys from a .env file for the *optional* AI narrator.
+env = ["python-dotenv>=1.0"]
+dev = ["pytest>=7.4", "pytest-cov>=4.1"]
+all = [
+  "tree-sitter>=0.21", "tree-sitter-language-pack>=0.2",
+  "fastapi>=0.110", "uvicorn[standard]>=0.27",
+  "xgboost>=2.0", "lightgbm>=4.0",
+  "python-dotenv>=1.0",
+]
+
+[project.scripts]
+bugseer = "bugseer.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/your-org/bugseer"
+Issues = "https://github.com/your-org/bugseer/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["bugseer*"]
+
+[tool.setuptools.package-data]
+bugseer = ["webui/static/index.html", "webui/static/assets/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning"]
