@@ -52,8 +52,8 @@ all = [
 bugseer = "bugseer.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/your-org/bugseer"
-Issues = "https://github.com/your-org/bugseer/issues"
+Homepage = "https://github.com/rishibanota/bugseer"
+Issues = "https://github.com/rishibanota/bugseer/issues"
 
 [tool.setuptools.packages.find]
 where = ["."]
