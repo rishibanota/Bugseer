@@ -9,7 +9,7 @@ description = "Offline bug-risk prediction for code repositories. Static analysi
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
-authors = [{ name = "BugSeer contributors" }]
+authors = [{ name = "Rishi Banota" }]
 keywords = ["static-analysis", "bug-prediction", "git", "code-quality", "machine-learning", "offline"]
 classifiers = [
   "Development Status :: 4 - Beta",
