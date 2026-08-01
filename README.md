@@ -7,6 +7,8 @@ No cloud. No API keys. No telemetry. Your source code never leaves your machine.
 
 ![Demo](assets/bugseer-demo.gif)
 
+---
+
 ```
 🔥  97  ████████████████████  src/flask/app.py     Learned model predicts elevated defect risk · Mutable global state
 🔴  74  ███████████████░░░░░  src/payment.py       High bug-fix density · No error handling · Deeply nested control flow
@@ -55,12 +57,12 @@ pip install -e ".[all]"     # everything
 pip install -e .            # core only — still fully functional
 ```
 
-| Extra | Adds | Without it |
-|---|---|---|
+| Extra     | Adds                          | Without it                                     |
+| --------- | ----------------------------- | ---------------------------------------------- |
 | `parsers` | tree-sitter for 19+ languages | Python via stdlib `ast`, others via heuristics |
-| `server` | FastAPI dashboard | Use the self-contained HTML report |
-| `ml` | XGBoost / LightGBM | scikit-learn gradient boosting (built in) |
-| `env` | `.env` file loading | Plain environment variables |
+| `server`  | FastAPI dashboard             | Use the self-contained HTML report             |
+| `ml`      | XGBoost / LightGBM            | scikit-learn gradient boosting (built in)      |
+| `env`     | `.env` file loading           | Plain environment variables                    |
 
 Every extra is optional. **Core BugSeer needs no network access at any point.**
 
@@ -86,19 +88,19 @@ bugseer report . -o risk.html         # shareable offline HTML
 
 Parsed with the best available backend: stdlib `ast` for Python (exact), tree-sitter for 19+ other languages, and a heuristic analyzer that never fails so an unknown language still gets scored.
 
-| Rule | Points | Fires when |
-|---|---|---|
-| `no-error-handling` | 20 | Risky I/O with no try/catch |
-| `low-coverage` | 20 | Measured coverage below threshold |
-| `deep-nesting` | 15 | Nested loops deeper than 3 |
-| `global-state` | 15 | Mutable module-level state |
-| `high-complexity` | 12 | Cyclomatic complexity > 20 |
-| `long-function` | 10 | Function longer than 100 lines |
-| `high-branching` | 10 | More than 15 conditional branches |
-| `duplicate-code` | 10 | Cloned blocks within or across files |
-| `swallowed-exception` | 8 | `except:` / `catch(e){}` that hides failures |
-| `god-file` | 8 | Over 600 lines |
-| …plus magic numbers, TODO debt, mutable defaults, long parameter lists | | |
+| Rule                                                                   | Points | Fires when                                   |
+| ---------------------------------------------------------------------- | ------ | -------------------------------------------- |
+| `no-error-handling`                                                    | 20     | Risky I/O with no try/catch                  |
+| `low-coverage`                                                         | 20     | Measured coverage below threshold            |
+| `deep-nesting`                                                         | 15     | Nested loops deeper than 3                   |
+| `global-state`                                                         | 15     | Mutable module-level state                   |
+| `high-complexity`                                                      | 12     | Cyclomatic complexity > 20                   |
+| `long-function`                                                        | 10     | Function longer than 100 lines               |
+| `high-branching`                                                       | 10     | More than 15 conditional branches            |
+| `duplicate-code`                                                       | 10     | Cloned blocks within or across files         |
+| `swallowed-exception`                                                  | 8      | `except:` / `catch(e){}` that hides failures |
+| `god-file`                                                             | 8      | Over 600 lines                               |
+| …plus magic numbers, TODO debt, mutable defaults, long parameter lists |        |                                              |
 
 ### Phase 2 — Git intelligence
 
@@ -119,7 +121,7 @@ Parses `git log` locally. No API, no network.
 bugseer train . --label-window 180
 ```
 
-Trains locally on **your** repository. Labels come from bug-fix commits in a recent window; features come from history *before* that window — a temporal split, so the model is genuinely predictive rather than circular.
+Trains locally on **your** repository. Labels come from bug-fix commits in a recent window; features come from history _before_ that window — a temporal split, so the model is genuinely predictive rather than circular.
 
 ```
 ✓ Model trained
@@ -207,7 +209,7 @@ Exits non-zero when any file exceeds the threshold. Add `--json report.json` to 
 
 **BugSeer needs no API key.** All five phases above are deterministic and offline.
 
-The *only* optional AI feature rewrites already-computed evidence as prose:
+The _only_ optional AI feature rewrites already-computed evidence as prose:
 
 ```bash
 cp .env.example .env       # then set one key
