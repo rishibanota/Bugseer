@@ -5,6 +5,8 @@ Static analysis + git intelligence + a local ML model — and an explanation for
 
 No cloud. No API keys. No telemetry. Your source code never leaves your machine.
 
+![Demo](assets/bugseer-demo.gif)
+
 ```
 🔥  97  ████████████████████  src/flask/app.py     Learned model predicts elevated defect risk · Mutable global state
 🔴  74  ███████████████░░░░░  src/payment.py       High bug-fix density · No error handling · Deeply nested control flow
