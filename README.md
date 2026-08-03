@@ -1,11 +1,18 @@
 # 🔍 BugSeer
 
+[![PyPI Version](https://img.shields.io/pypi/v/bugseer.svg?style=flat-square&color=blue)](https://pypi.org/project/bugseer/)
+[![Python Versions](https://img.shields.io/pypi/pyversions/bugseer.svg?style=flat-square&color=3776ab)](https://pypi.org/project/bugseer/)
+[![License: MIT](https://img.shields.io/github/license/rishibanota/bugseer.svg?style=flat-square&color=green)](LICENSE)
+[![Offline & Private](https://img.shields.io/badge/privacy-100%25%20offline-success.svg?style=flat-square)](SECURITY.md)
+[![PyPI Downloads](https://img.shields.io/pypi/dm/bugseer.svg?style=flat-square&color=orange)](https://pypi.org/project/bugseer/)
+
 **Offline bug-risk prediction for code repositories.**
 Static analysis + git intelligence + a local ML model — and an explanation for every number it shows you.
 
 No cloud. No API keys. No telemetry. Your source code never leaves your machine.
 
 ![Demo](assets/bugseer-demo.gif)
+
 
 ---
 
